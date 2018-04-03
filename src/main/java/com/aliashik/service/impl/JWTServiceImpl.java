@@ -26,6 +26,7 @@ public class JWTServiceImpl implements JWTService{
     private UserService userService;
 
     public  String createJWT(Integer userId, String username,  String subject, long ttlMillis) {
+        logger.info(":::: Initiating token creation ::::");
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         long nowMillis = System.currentTimeMillis();
         Date now = new Date(nowMillis);
@@ -33,8 +34,6 @@ public class JWTServiceImpl implements JWTService{
 
         Map userRoles = new HashMap();
         userRoles.put("Roles", userService.getUserRolesByUserID(userId));
-
-
 
         JwtBuilder builder = Jwts.builder().setId(username)
                 .setIssuedAt(now)

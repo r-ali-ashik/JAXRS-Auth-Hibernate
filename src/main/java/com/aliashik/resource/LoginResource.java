@@ -48,13 +48,14 @@ public class LoginResource {
     public Response authenticateUser(User user) {
         try {
 
-            logger.info(":::: Request have reached to /login resource ::::");
+            logger.info(":::: Request have reached to resource ::::");
             Map userMap = userService.getUserByUsername(user.getUsername());
             if(!userMap.get("password").equals(user.getPassword())){
                 throw new Exception();
             }
-            logger.info(":::: Authentication successful...Initiating token creation ::::");
+            logger.info(":::: Authentication successful ::::");
             String token = jwtService.createJWT((Integer)userMap.get("userId"), user.getUsername(), uriInfo.getAbsolutePath().toString(), 1000000);
+            logger.info(":::: Token creation successful...preparing response ::::");
             return Response.ok()
                     .entity(new Message("SUCCESS", "Login Successful"))
                     .header(AUTHORIZATION, "Bearer " + token).build();
