@@ -1,0 +1,28 @@
+<configuration scan="true" scanPeriod="30 seconds">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <!--%d{"yyyy-MM-dd'T'HH:mm:ss,SSS"}-->
+            <pattern>%blue(%d{"hh:mm:ss.SSSXXX"})|%yellow(%-5level)|%green(%26.26logger.%-30.30M \(%4line\))|%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="httpclient.wire" level="INFO" />
+    <logger name="org.apache.commons.httpclient" level="INFO" />
+    <logger name="net.sf.ehcache" level="INFO" />
+    <logger name="org.springframework" level="INFO" />
+    <!--<logger name="info.archinnov.achilles" level="INFO" />-->
+    <!--<logger name="audit" level="INFO" />-->
+    <!--<logger name="org.apache.cxf" level="INFO" />-->
+    <!--<logger name="velocity" level="INFO" />-->
+    <logger name="org.apache.http" level="INFO" />
+    <!--<logger name="net.bull.javamelody" level="INFO" />-->
+
+
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
