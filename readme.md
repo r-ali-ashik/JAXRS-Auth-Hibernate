@@ -10,7 +10,7 @@ Required step(s) to successfully run the project
     
     http://localhost:8080/api/echo/jwt (JWT token required)
 
-- To access secured resource use one of the following payloads to and hit http://localhost:8080/users/login. 
+- To access secured resource use one of the following payloads to and hit POST http://localhost:8080/users/login. 
 
     {
         "username" : "admin",
@@ -29,6 +29,6 @@ Required step(s) to successfully run the project
 
 - Server will return a JWT token in Authorization header 
 
-- Now hit the http://localhost:8080/api/echo/jwt and add the JWT token with Authorization header
+- Now hit the GET http://localhost:8080/api/echo/jwt and add the JWT token with Authorization header
 
 - Server will return corresponding response. 
