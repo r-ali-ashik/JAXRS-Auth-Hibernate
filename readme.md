@@ -1,3 +1,5 @@
+#JAX-RS Spring Hibernate Integration Project 
+
 Required step(s) to successfully run the project
 
 - Run the database script (check mysql_script.sql file). Which will create and populate required tables.
