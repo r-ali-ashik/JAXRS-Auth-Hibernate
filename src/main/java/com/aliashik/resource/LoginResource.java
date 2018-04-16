@@ -54,7 +54,10 @@ public class LoginResource {
                 throw new Exception();
             }
             logger.info(":::: Authentication successful ::::");
-            String token = jwtService.createJWT((Integer)userMap.get("userId"), user.getUsername(), uriInfo.getAbsolutePath().toString(), 1000000);
+            String token = jwtService.createJWT((Integer)userMap.get("userId"),
+                    user.getUsername(),
+                    uriInfo.getAbsolutePath().toString(),
+                    1000000);
             logger.info(":::: Token creation successful...preparing response ::::");
             return Response.ok()
                     .entity(new Message("SUCCESS", "Login Successful"))
